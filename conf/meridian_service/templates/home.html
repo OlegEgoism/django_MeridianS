@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>"МЕРИДИАНСЕРВИС"</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/prettyPhoto.css" rel="stylesheet">
+    <link href="static/css/main.css" rel="stylesheet">
+    <script src="static/js/html5shiv.js"></script>
+    <script src="static/js/respond.min.js"></script>
+    <link rel="shortcut icon" href="static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="0">
+<div class="width=100% height=100% align-left"></div>
+<div class="width=100% height=100% align-left"></div>
+<div class="align-left"></div>
+<div style="display:none;"><a
+        href="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#108;&#105;&#110;&#105;&#121;&#97;&#111;&#107;&#111;&#110;&#46;&#114;&#117;">&#1086;&#1082;&#1085;&#1072;</a>
+    <!-- div --><!-- div end --> <a
+            href="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#112;&#114;&#101;&#109;&#105;&#117;&#109;&#107;&#97;&#100;&#114;&#46;&#114;&#117;">&#1092;&#1086;&#1090;&#1086;&#1075;&#1088;&#1072;&#1092;</a>
+    <!-- div --><!-- div end --> <a
+            href="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#117;&#110;&#105;&#115;&#104;&#97;&#98;&#108;&#111;&#110;.&#99;&#111;&#109;">html
+        php</a> <a
+            href="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#114;&#105;&#116;&#117;&#97;&#108;&#103;&#97;&#114;&#97;&#110;&#116;&#46;&#114;&#117;">&#1087;&#1072;&#1084;&#1103;&#1090;&#1085;&#1080;&#1082;&#1080;</a>
+    <a href="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#116;&#117;&#116;&#108;&#111;&#118;&#101;&#46;&#114;&#117;">&#1079;&#1085;&#1072;&#1082;&#1086;&#1084;&#1089;&#1090;&#1074;&#1072;</a>
+</div>
+<div class="padding valign-image-left"></div>
+<div class="padding  valign-image-right"></div>
+<div class="padding valign-image-center"></div>
+
+<header id="header" role="banner">
+    <div class="container">
+        <div id="navbar" class="navbar navbar-default">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    {% for i in contac %}
+                    <li class="active"><a href="#main-slider">{{ i.name }}</a></li>
+                    <li><a href="#portfolio">Наши клиенты</a></li>
+                    <li><a href="#pricing">Сертификаты</a></li>
+                    <li><a href="#about-us">Сотрудники</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                    <li class="#">{{i.address}}<br></li>
+                    <h4><a href="tel:{{ i.phone1 }}">{{ i.phone1 }}<br></a></h4>
+                    <h4><a href="tel:{{ i.phone2 }}">{{ i.phone2 }}<br></a></h4>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="main-slider" class="carousel">
+    <div class="item active">
+        <div class="container">
+            <div class="carousel-content">
+                {% for i in about_us %}
+                <p class="lead">{{ i.name }}<br>{{ i.description }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <div class="container">
+        <div class="box">
+            <div class="center">
+                <h2>Наши клиенты</h2>
+                <p class="lead"></p>
+                {% for i in clients %}
+                <div class="col-sm-3">
+                    <h4>{{ i.name }}</h4>
+                    <div class="member">
+                        <p> {% if i.image %}
+                            <img src="{{ i.image.url }}" class="img-responsive img-thumbnail">
+                            {% else %}
+                            <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png"
+                                 class="img-responsive img-thumbnail">
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="gap">
+            </div>
+            <div class="item active">
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing">
+    <div class="container">
+        <div class="box">
+            <div class="center">
+                <h2>Сертификаты</h2>
+                <p class="lead"></p>
+                {% for i in certificates %}
+                <div class="col-sm-6">
+                    <h4>{{ i.name }}</h4>
+                    <div class="member">
+                        <p> {% if i.image %}
+                            <img src="{{ i.image.url }}" class="img-responsive img-thumbnail">
+                            {% else %}
+                            <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png"
+                                 class="img-responsive img-thumbnail">
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="gap"></div>
+            <div id="pricing-table" class="carousel scale">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about-us">
+    <div class="container">
+        <div class="box">
+            <div class="center">
+                <h2>Сотрудники</h2>
+                <p class="lead"></p>
+                {% for i in worker %}
+                <div class="col-sm-4">
+                    <div class="member">
+                        <p> {% if i.image %}
+                            <img src="{{ i.image.url }}" class="img-responsive img-thumbnail img-circle">
+                            {% else %}
+                            <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png"
+                                 class="img-responsive img-thumbnail img-circle">
+                            {% endif %}
+                        </p>
+                        <h3>{{ i.name }}<br><small class="designation">{{ i.position }}<br>{{ i.phone }}<br></small>
+                        </h3>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="gap"></div>
+            <div id="team-scroller" class="carousel scale">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="box last">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Обратная связь</h1>
+                    <p>Задайте нам ваши вопросы.</p>
+                    <div class="status alert alert-success" style="display: none"></div>
+                    <form method="POST">
+                        <div class="row">
+                            <div class="form-group">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-lg">Отправить</button>
+                    </form>
+                </div>
+                <div class="col-sm-5">
+                    <h1>Контакты</h1>
+                    {% for i in contac %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <address>
+                                {{ i.address }} <br>
+                                {{ i.time_work1 }} <br>
+                                {{ i.time_work2 }} <br>
+                            </address>
+                        </div>
+                        <div class="col-md-6">
+                            <address>
+                                <a href="tel:{{ i.phone1 }}">{{ i.phone1 }}<br></a>
+                                <a href="tel:{{ i.phone2 }}">{{ i.phone2 }}<br></a>
+                                {{ i.email }}<br>
+<!--                                <a href="mailto:{{ i.email }}">{{ i.email }}<br></a>-->
+                            </address>
+                        </div>
+                    </div>
+                    {{ i.maps|safe }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2022 <a target="_blank" href="https://vk.com/id21286161" title="">Pustovalov</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery.isotope.min.js"></script>
+<script src="static/js/jquery.prettyPhoto.js"></script>
+<script src="static/js/main.js"></script>
+
+</body>
+</html>
